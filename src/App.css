@@ -1,38 +1,223 @@
-.App {
-  text-align: center;
-}
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500;600&family=Montserrat:wght@300;400;500;600;700&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+:root {
+  --ibm: 'IBM Plex Sans', sans-serif;
+  --mont: 'Montserrat', sans-serif;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  overflow-x: hidden;
+  font-family: var(--mont);
+}
+.header {
+  width: 100vw;
+  height: 5rem;
+  background-color: #293462;
   display: flex;
-  flex-direction: column;
+  justify-content: flex-start;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  padding: 0 0 0 2rem;
+  color: #1CD6CE;
+  font-family: var(--ibm);
+  letter-spacing: 1.5px;
+}
+.header h2 {
+  font-size: 2.5rem;
+}
+.header span {
+  color: #FEDB39;
+}
+.form-section {
+  position: relative;
+  width: 70%;
+  height: auto;
+  margin: 3rem auto;
+  padding: 0.5rem 1.5rem 1.5rem;
+  background-color: rgb(231, 231, 231);
+  border-radius: 10px;
+  box-shadow: 5px 5px 10px rgb(195, 195, 195);
+}
+.form-section h2 {
+  font-size: 1.1rem;
+  padding: 1rem 0;
+  color: #293462;
+}
+.form-section form {
+  display: grid;
+  grid-template: repeat(4, auto) / repeat(2, 1fr);
+  row-gap: 0.5rem;
+  column-gap: 2rem;
+  padding: 0 0 1rem;
+}
+form > input {
+  width: 100%;
+  height: 2rem;
+  padding: 0.5rem;
+}
+form > select {
+  padding: 0.5rem;
+}
+input::placeholder, textarea::placeholder  {
+  color: black;
+}
+form.info-form > textarea {
+  resize: none;
+  grid-column: 1 / span 2;
+  padding: 0.5rem;
+}
+.form-section form > button {
+  width: max-content;
+  padding: 0.4rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  background-color: #293462;
+  border: none;
   color: white;
 }
-
-.App-link {
-  color: #61dafb;
+.info-display {
+  display: grid;
+  grid-template: 1fr / repeat(3, 1fr);
+  grid-auto-rows: 1fr;
+  font-size: 0.8rem;
+  row-gap: 0.5rem;
+  column-gap: 1rem;
+  color: rgb(48, 48, 48);
+}
+.info-display .info {
+  padding: 0.6rem;
+  border: 0.1px solid rgb(159, 159, 159);
+}
+.info-display .info p {
+  padding: 5px 0 0;
+  font-weight: bold;
+}
+.info-display .info p > span {
+  font-weight: lighter;
+}
+.info-display .info .delete {
+  background-color: #D61C4E;
+  padding: 0.2rem 0.5rem;
+  color: #fff;
+  border: none;
+  margin: 0.7rem 0 0;
+}
+.cv-container {
+  position: relative;
+  width: 70%;
+  height: auto;
+  margin: 3rem auto;
+}
+.preview-btn, .download-btn {
+  width: 100%;
+  padding: 1rem 0;
+  height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.preview-btn .btn, .download-btn .btn {
+  border: none;
+  padding: 10px 16px;
+  background-color: #D61C4E;
+  color: white;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.cv-main {
+  width: 100%;
+  box-shadow: 5px 5px 10px rgb(220, 220, 220);
+  border-radius: 5px;
+  margin: 0.5rem 0;
+  /* display: none; */
+}
+.cv-main .cv-header {
+  background-color: #293462;
+  color: #fff;
+  padding: 2rem 1rem;
+}
+.cv-header h1 {
+  letter-spacing: 1.5px;
+  font-size: 2.5rem;
+}
+.cv-header p {
+  font-size: 2rem;
+  font-weight: lighter;
+}
+.cv-body {
+  display: grid;
+  grid-template: 1fr / 1fr 4fr;
+  gap: 1rem;
+}
+.cv-body .bio {
+  width: 100%;
+  padding: 2rem 1rem;
+  background-color: rgb(231, 231, 231);
+}
+.cv-body h3 {
+  color: #293462;
+  margin: 0 0 0.4rem;
+}
+.cv-body h6 {
+  font-size: 0.9rem;
+  letter-spacing: 1.2px;
+  margin: 1rem 0 0;
+}
+.cv-body p {
+  font-size: 0.8rem;
+  font-weight: 400;
+}
+.cv-details {
+  display: grid;
+  grid-template: repeat(3, auto) / 1fr;
+  padding: 2rem 1rem;
+  width: 100%;
+}
+.cv-details h4 {
+  border-bottom: 0.5px solid #293462;
+  color: #293462;
+  padding: 0 0 8px;
+  margin: 0 0 1rem;
+}
+.cv-details > div {
+  margin: 0 0 2rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cv-details .job {
+  display: grid;
+  grid-template: 1fr / 1fr 2fr;
+  column-gap: 2rem;
+  color: #494949;
+  margin: 0 0 1rem;
+}
+.cv-details .job h5 {
+  font-size: 1rem;
+  padding: 0 0 5px;
+}
+.cv-details .job p {
+  font-size: 1rem;
+  color: #000;
+}
+.start-end {
+  font-weight: bold;
+}
+.cv-details .school {
+  display: grid;
+  grid-template: 1fr / 1fr 2fr;
+  column-gap: 2rem;
+  color: #494949;
+  margin: 0 0 1rem;
+}
+.cv-details .school h5 {
+  font-size: 1rem;
+  padding: 0 0 5px;
+}
+.cv-details .school p {
+  font-size: 0.9rem;
+  font-weight: 400;
+  margin: 0 0 5px;
+  color: #000;
 }
